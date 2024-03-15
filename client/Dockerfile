@@ -1,12 +1,12 @@
 FROM oven/bun:latest
 
-WORKDIR /app
+WORKDIR /client
 
 COPY package.json .
 
 RUN bun install
 
-COPY ..
+COPY . .
 
 RUN bun run build
 
