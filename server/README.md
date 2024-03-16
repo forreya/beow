@@ -9,20 +9,21 @@ django-admin startproject server
 cd server
 ```
 
-3. Create New Django App
-
-```
-python3 manage.py startapp app
-```
-
-4. Synchronize Django models with the database schema
+3. Synchronize Django models with the database schema
 
 ```
 python3 manage.py migrate
 ```
 
-5. Run project
+4. Run project
 
 ```
 python manage.py runserver
+```
+
+5. Create New Django App
+
+For example, 'users', to handle authentication & authorization:
+```
+python3 manage.py startapp users
 ```
