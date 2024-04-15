@@ -20,7 +20,7 @@ bun run build // creates dist folder
 
 ```
 bun install serve -g
-serve -s dist -l 8080
+serve -s dist -l 1207
 ```
 
 or
@@ -48,7 +48,7 @@ docker images
 4. Run the docker container based on the image:
 
 ```
-docker run -d -p 8080:8080 sample-project:v1.0
+docker run -d -p 1207:1207 sample-project:v1.0
 ```
 
 This runs the container in a detached state (as a background process).

@@ -8,7 +8,17 @@ services:
       context: ./client
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "1207:1207"
     volumes:
-      - ./client:/client
-      - /client/node_modules
+      - ./client:/client # bind mount
+      - node_modules:/client/node_modules # docker-managed volume
+  backend:
+    container_name: beow_backend
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "2808:2808"
+  
+volumes:
+  node_modules:
