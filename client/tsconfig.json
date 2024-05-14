@@ -24,8 +24,11 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "types": [
+      "bun"
+    ]
   },
-  "include": ["src"],
+  "include": ["**/*.ts","**/*tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
