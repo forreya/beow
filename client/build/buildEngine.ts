@@ -1,4 +1,6 @@
 import fs from "fs";
+import build from "./build";
+import path from "path";
 
 const debounce = <T extends unknown[]>(funcToDebounce: (...args: T) => void) => {
 	let timer: ReturnType<typeof setTimeout> | undefined = undefined
@@ -10,22 +12,23 @@ const debounce = <T extends unknown[]>(funcToDebounce: (...args: T) => void) => 
 	}
 }
 
-const triggerExtensions = /^.*\.(tsx?|jsx?|png|jpg|webp|svg|css)$/;
+const triggerExtensions = /^.*\.(tsx?|jsx?|png|jpg|webp|svg|css|html)$/;
 
 const fileWatcher = fs.watch(
-	import.meta.dir + "/../src",
+	path.join(import.meta.dir, "/../src"),
 	{
 		recursive: true
 	},
-	debounce((_, filename) => {
+	debounce(async (_, filename) => {
 		if (typeof filename !== "string") {
 			return;
 		}
 		if (!triggerExtensions.exec(filename)) {
 			return;
 		}
+		console.log("------------------------")
 		console.log("Firing up build engine...");
-		// Run build script here
+		await build();
 		console.log("Rebuild completed.")
 	})
 );
@@ -40,6 +43,7 @@ process.on("SIGINT", () => {
 	process.exit(0);
 })
 
+console.log("------------------------")
 console.log("Firing up build engine...");
-// Run build script here
+await build();
 console.log("Rebuild completed.")
