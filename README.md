@@ -27,6 +27,7 @@ Docker needs to be installed on your system.
 
 ## Todo List
 
-- [] Finish Barebones RadioModal Component
+- [x] Finish Barebones RadioModal Component
 - [] Add Error Display for BuildEngine
 - [] Setup Auto-Linter on Build
+- [] Make BuildEngine Watch `tailwind.config.js` As Well
