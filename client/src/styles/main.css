@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: 'dtk-bios';
+		src: url(/fonts/DTK_BIOS.ttf);
+	}
+	@font-face {
+		font-family: 'ibm-vga';
+		src: url(/fonts/IBM_VGA_8x16.ttf);
+	}
+}

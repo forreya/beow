@@ -27,6 +27,6 @@ Docker needs to be installed on your system.
 
 ## Todo List
 
-- [] Finish Barebones MusicPlayer Component
+- [] Finish Barebones RadioModal Component
 - [] Add Error Display for BuildEngine
 - [] Setup Auto-Linter on Build
