@@ -1,10 +1,11 @@
 import fs from "fs";
 import build from "./build";
 import path from "path";
+import chalk from "chalk";
 
 const debounce = <T extends unknown[]>(funcToDebounce: (...args: T) => void) => {
 	let timer: ReturnType<typeof setTimeout> | undefined = undefined
-	return (...args: T) => {
+	return (...args: T): void => {
 		clearTimeout(timer);
 		timer = setTimeout(() => {
 			funcToDebounce(...args);
@@ -28,8 +29,12 @@ const fileWatcher = fs.watch(
 		}
 		console.log("------------------------")
 		console.log("Firing up build engine...");
-		await build();
-		console.log("Rebuild completed.")
+		const didBuildSucceed = await build();
+		if (didBuildSucceed) {
+			console.log(chalk.green("Rebuild completed."));
+		} else {
+			console.log(chalk.red("Rebuild failed 😔"));
+		}
 	})
 );
 
@@ -45,5 +50,9 @@ process.on("SIGINT", () => {
 
 console.log("------------------------")
 console.log("Firing up build engine...");
-await build();
-console.log("Rebuild completed.")
+const didBuildSucceed = await build();
+if (didBuildSucceed) {
+	console.log(chalk.green("Build completed."));
+} else {
+	console.log(chalk.red("Build failed 😔"));
+}

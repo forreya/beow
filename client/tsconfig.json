@@ -17,6 +17,8 @@
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
+    "strictPropertyInitialization": true,
+    "exactOptionalPropertyTypes": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "strictNullChecks": true,
@@ -29,7 +31,7 @@
       "bun"
     ]
   },
-  "include": ["**/*.ts","**/*tsx"],
-  "exclude": ["**/*config.ts"],
+  "include": ["**/*ts","**/*tsx"],
+  "exclude": ["**/*config*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

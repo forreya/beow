@@ -1,6 +1,6 @@
 import RadioModal from "../components/RadioModal";
 
-function HomePage() {
+const HomePage = () => {
     return (
         <div>
             <h1 className="text-6xl font-oldComputer">HEADER</h1>
@@ -15,4 +15,3 @@ function HomePage() {
 }
 
 export default HomePage;
-  
