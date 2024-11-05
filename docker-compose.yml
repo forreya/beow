@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   frontend:
     container_name: beow_frontend
@@ -12,13 +10,34 @@ services:
     volumes:
       - ./client:/client # bind mount
       - node_modules:/client/node_modules # docker-managed volume
+  database:
+    container_name: beow_db
+    image: postgres:17
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_DB=beow_db
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - PGUSER=postgres
+    volumes:
+      - ./db/db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "sh -c 'pg_isready -U admin -d beow_db'"]
+      interval: 1s
+      timeout: 3s
+      retries: 5
   backend:
     container_name: beow_backend
     build:
       context: ./server
       dockerfile: Dockerfile
     ports:
-      - "2808:2808"
-  
+      - "2809:2809"
+    depends_on:
+      database:
+        condition: service_healthy
 volumes:
   node_modules:

@@ -12,4 +12,6 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["python3", "manage.py", "runserver", "0.0.0.0:2808"]
+RUN chmod +x /server/entrypoint.sh
+
+ENTRYPOINT ["/server/entrypoint.sh"]
