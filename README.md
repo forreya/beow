@@ -27,9 +27,17 @@ Docker needs to be installed on your system.
 
 ## Todo List
 
-- [x] Finish Barebones RadioModal Component
-- [ ] Add Error Display for BuildEngine
-   - [x] TypeScipt Compile Script
-   - [ ] Tailwind Build Script
-- [ ] Setup Auto-Formatter for BuildEngine
-- [ ] Make BuildEngine Watch `tailwind.config.js` As Well
+### Frontend
+- [x] Finish Barebones `RadioModal` Component
+- [x] Add Error Display for `BuildEngine`
+   - [x] TypeScript Compile Script
+   - [x] Tailwind Build Script
+- [ ] Setup Auto-Formatter for `BuildEngine`
+- [ ] Make `BuildEngine` Watch `tailwind.config.js` As Well
+
+### Backend
+- [x] Set up automated database migrations via entrypoint script
+- [ ] Implement error handling and logging for backend processes
+
+### Database
+- [ ] Configure `settings.py` to be environment flexible (development, production, etc)
