@@ -36,6 +36,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "2809:2809"
+    volumes:
+      - ./server:/server # bind mount
     depends_on:
       database:
         condition: service_healthy
