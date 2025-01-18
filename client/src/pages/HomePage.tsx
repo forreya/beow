@@ -1,17 +1,15 @@
-import RadioModal from "../components/RadioModal";
+import { Radio } from "../components/Radio/Radio";
+import { RadioProvider } from "../context/RadioContext";
 
 const HomePage = () => {
-    return (
-        <div>
-            <h1 className="text-6xl font-oldComputer">HEADER</h1>
-            <RadioModal
-                title = "Everybody Wants To Be A Cat"
-                artist = "Bloncs"
-                duration = {30}
-                currentTime = {10}
-            />
-        </div>
-    )
+	return (
+		<div>
+			<h1 className="text-6xl font-oldComputer">HEADER</h1>
+			<RadioProvider>
+				<Radio />
+			</RadioProvider>
+		</div>
+	)
 }
 
 export default HomePage;
