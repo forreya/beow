@@ -4,8 +4,8 @@ from .models import Track, Channel
 
 @admin.register(Track)
 class TrackAdmin(admin.ModelAdmin):
-    list_display = ('title', 'artist', 'release_date')
+	list_display = ('title', 'artist', 'release_date')
 
 @admin.register(Channel)
 class ChannelAdmin(admin.ModelAdmin):
-    list_display = ['name']
+	list_display = ['name']

@@ -7,16 +7,6 @@ from .serializer import TrackSerializer
 
 @api_view(['GET'])
 def get_track(request):
-	serializer = TrackSerializer(data= {
-			'title': 'Test Song',
-			'artist': 'Test Artist',
-			'featuring_artists': None,
-			'url': 'https://www.google.com/',
-			'release_date': '2001-07-12',
-			'channels': [],
-		})
-	try:
-		serializer.is_valid(raise_exception=True)
-	except:
-		print(serializer.errors)
-	return Response(serializer.validated_data)
+	tracks = Track.objects.all()
+	serializer = TrackSerializer(tracks, many=True)
+	return Response(serializer.data)
