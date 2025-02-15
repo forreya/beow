@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import status
 from .models import Track
 from .serializer import TrackSerializer
+import random
 
 @api_view(['GET'])
 def get_track(request):
-	tracks = Track.objects.all()
-	serializer = TrackSerializer(tracks, many=True)
+	max_id = Track.objects.order_by('-id')[0].id # type: ignore
+	random_id = random.randint(1, max_id)
+	random_track = Track.objects.filter(id__gte=random_id)[0]
+	serializer = TrackSerializer(random_track)
 	return Response(serializer.data)
