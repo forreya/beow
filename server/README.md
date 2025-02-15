@@ -43,3 +43,9 @@ $ source .venv/bin/activate // activates the virtual environment
 The `requirements.txt` file contains the contents of the virtual environment. After generating the `requirements.txt` file, you can just delete the `.venv` folder.
 
 2. Create Dockerfile
+
+### Setup AWS CLI Configuration
+
+See: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html
+
+Setup for 'long term credentials' using the guide above.
