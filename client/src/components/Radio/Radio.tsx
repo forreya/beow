@@ -6,6 +6,7 @@ export const Radio = () => {
 	const {currentTrack, audioElementRef, currentTime, duration} = useRadioContext();
 
 	return (
+		currentTrack ?
 		<div>
 			<AudioPlayer
 				audioElementRef={audioElementRef}
@@ -14,10 +15,12 @@ export const Radio = () => {
 			<RadioModal
 				title={currentTrack.title}
 				artist={currentTrack.artist}
+				featuring_artists={currentTrack.featuring_artists}
 				src={currentTrack.src}
 				duration={duration}
 				currentTime={currentTime}
 			/>
-		</div>
+		</div> :
+		<h1>Loading...</h1>
 	)
 }

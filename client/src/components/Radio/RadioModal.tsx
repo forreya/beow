@@ -14,6 +14,7 @@ interface RadioModalProps extends Track {
 const RadioModal: React.FC<RadioModalProps> = ({
 	title,
 	artist,
+	featuring_artists,
 	duration,
 	currentTime,
 }: RadioModalProps) => {
@@ -45,7 +46,7 @@ const RadioModal: React.FC<RadioModalProps> = ({
 						duration={formatPlaybackTime(duration)}
 					/>
 					<div className='text-lg'>{title}</div>
-					<div>{artist}</div>
+					<div>{artist} - {featuring_artists}</div>
 					<div className="flex justify-between items-center mt-4">
 						<button>⏮</button>
 						<TogglePlayButton />

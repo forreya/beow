@@ -25,7 +25,7 @@ load_dotenv(BASE_DIR / '.env')
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('ENV_VAR', 'False').lower() in ('true', '1')
+DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1')
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'rest_framework',
+	'corsheaders',
     'users',
     'music',
 ]
@@ -50,6 +51,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    os.getenv('FRONTEND_URL'),
 ]
 
 ROOT_URLCONF = 'server.urls'
